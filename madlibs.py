@@ -44,11 +44,11 @@ def say_hello():
 def greet_person():
     """Greet user with compliment."""
 
-    player = request.args.get("person")
+    player = request.args.get("player")
 
     compliment = choice(AWESOMENESS)
 
-    return render_template("compliment.html", person=player, compliment=compliment)
+    return render_template("compliment.html", player=player, compliment=compliment)
 
 @app.route("/game")
 def show_madlib_form():
@@ -66,12 +66,12 @@ def show_madlib_form():
 def show_madlib():
     """Take in inputs from the player, and output the madlib sentence."""
 
-    person = request.args.get("person")
+    player = request.args.get("player")
     color = request.args.get("color")
     noun = request.args.get("noun")
     adjective = request.args.get("adjective")
     
-    return render_template("madlibs.html", person=person, color=color, noun=noun, adjective=adjective)
+    return render_template("madlib.html", player=player, color=color, noun=noun, adjective=adjective)
 
 
 if __name__ == "__main__":
